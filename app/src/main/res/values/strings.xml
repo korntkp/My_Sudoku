@@ -10,5 +10,6 @@
     <string name="new_game_label">New Game</string>
     <string name="about_label">About Me</string>
     <string name="exit_label">Exit Game</string>
+    <string name="about_text"><b>Sudoku</b> This is my first android game.</string>
 
 </resources>
