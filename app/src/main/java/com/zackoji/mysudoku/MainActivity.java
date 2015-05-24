@@ -1,17 +1,31 @@
 package com.zackoji.mysudoku;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends ActionBarActivity implements View.OnClickListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        View btnAbout = findViewById(R.id.about_button);
+        btnAbout.setOnClickListener(this);
+    }
+
+    public void onClick(View v){
+        switch (v.getId()) {
+            case R.id.about_button:
+                Intent i = new Intent(this, About.class);
+                startActivity(i);
+                break;
+        }
     }
 
 
