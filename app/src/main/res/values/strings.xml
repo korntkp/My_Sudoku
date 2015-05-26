@@ -15,6 +15,8 @@
     <string name="settings_label">Setting</string>
     <string name="settings_title">My Sudoku Settings</string>
     <string name="music_title">Music</string>
+    <string name="music_summary">Play Background Music</string>
     <string name="hints_title">Hints</string>
+    <string name="hints_summary">Show Hints</string>
 
 </resources>
