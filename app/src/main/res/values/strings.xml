@@ -12,4 +12,9 @@
     <string name="exit_label">Exit Game</string>
     <string name="about_text"><b>Sudoku</b> This is my first android game.</string>
 
+    <string name="settings_label">Setting</string>
+    <string name="settings_title">My Sudoku Settings</string>
+    <string name="music_title">Music</string>
+    <string name="hints_title">Hints</string>
+
 </resources>
