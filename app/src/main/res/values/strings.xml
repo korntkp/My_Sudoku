@@ -19,4 +19,10 @@
     <string name="hints_title">Hints</string>
     <string name="hints_summary">Show Hints</string>
 
+    <string name="new_game_title">Select Mode</string>
+    <string name="new_easy">Easy</string>
+    <string name="new_medium">Medium</string>
+    <string name="new_hard">Hard</string>
+
+
 </resources>

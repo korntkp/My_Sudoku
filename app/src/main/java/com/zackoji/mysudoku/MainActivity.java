@@ -1,5 +1,6 @@
 package com.zackoji.mysudoku;
 
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -16,8 +17,17 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        View btnCont = findViewById(R.id.cont_button);
+        btnCont.setOnClickListener(this);
+
+        View btnNewGame = findViewById(R.id.new_game_button);
+        btnNewGame.setOnClickListener(this);
+
         View btnAbout = findViewById(R.id.about_button);
         btnAbout.setOnClickListener(this);
+
+        View btnExit = findViewById(R.id.exit_button);
+        btnExit.setOnClickListener(this);
     }
 
     public void onClick(View v){
@@ -26,9 +36,20 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
                 Intent i = new Intent(this, About.class);
                 startActivity(i);
                 break;
+
+            case R.id.new_game_button:
+                openNewGameDialog();
+                break;
         }
     }
 
+    private static final String TAG = "Sudoku";
+
+    private void openNewGameDialog() {
+        AlertDialog.Builder dialog = new AlertDialog.Builder(this);
+        dialog.setTitle(R.string.new_game_title);
+        //dialog.setItems()
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
