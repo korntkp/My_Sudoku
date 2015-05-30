@@ -1,9 +1,11 @@
 package com.zackoji.mysudoku;
 
 import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -40,6 +42,10 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
             case R.id.new_game_button:
                 openNewGameDialog();
                 break;
+
+            case R.id.exit_button:
+                finish();
+                break;
         }
     }
 
@@ -48,7 +54,17 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
     private void openNewGameDialog() {
         AlertDialog.Builder dialog = new AlertDialog.Builder(this);
         dialog.setTitle(R.string.new_game_title);
-        //dialog.setItems()
+        dialog.setItems(R.array.difficulty, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int i) {
+                startGame(i);
+            }
+        });
+        dialog.show();
+    }
+
+    private void startGame(int i) {
+        Log.d(TAG, "Player Select " + i);
     }
 
     @Override
