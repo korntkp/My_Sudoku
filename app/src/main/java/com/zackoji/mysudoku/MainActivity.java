@@ -65,6 +65,9 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
 
     private void startGame(int i) {
         Log.d(TAG, "Player Select " + i);
+        Intent intent = new Intent(this, PuzzleActivity.class);
+        intent.putExtra(PuzzleActivity.KEY_DIFFICULT, i);
+        startActivity(intent);
     }
 
     @Override

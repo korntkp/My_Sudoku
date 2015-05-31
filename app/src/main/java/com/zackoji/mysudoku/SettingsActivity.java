@@ -7,6 +7,7 @@ import android.preference.PreferenceFragment;
 /**
  * Created by Zackoji on 27/5/2558.
  */
+
 public class SettingsActivity extends PreferenceActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
