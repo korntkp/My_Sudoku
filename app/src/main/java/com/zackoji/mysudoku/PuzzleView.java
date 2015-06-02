@@ -43,5 +43,30 @@ public class PuzzleView extends View{
         paint.setColor(getResources().getColor(R.color.puzzle_background));
         canvas.drawRect(0, 0, getWidth(), getHeight(), paint);
 
+        //Draw Grid
+            //Set Color
+        Paint dark = new Paint();
+        dark.setColor(getResources().getColor(R.color.puzzle_dark));
+        Paint highlight = new Paint();
+        dark.setColor(getResources().getColor(R.color.puzzle_highlight));
+        Paint light = new Paint();
+        dark.setColor(getResources().getColor(R.color.puzzle_light));
+            //Draw Sub Grid
+        for(int i = 0; i < 9; i++){
+            canvas.drawLine(0, i * height, getWidth(), i * height, light);
+            canvas.drawLine(0, i * height + 1, getWidth(), i * height + 1, highlight);
+            canvas.drawLine(i * width, 0 , i * width, getHeight(), light);
+            canvas.drawLine(i * width + 1, 0 , i * width + 1, getHeight(), highlight);
+        }
+            //Draw Primary Grid
+        for(int i = 0; i < 9; i++){
+            if(i % 3 != 0) continue;
+            canvas.drawLine(0, i * height, getWidth(), i * height, dark);
+            canvas.drawLine(0, i * height + 1, getWidth(), i * height + 1, highlight);
+            canvas.drawLine(i * width, 0 , i * width, getHeight(), dark);
+            canvas.drawLine(i * width + 1, 0 , i * width + 1, getHeight(), highlight);
+        }
+
+
     }
 }
