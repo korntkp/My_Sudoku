@@ -25,7 +25,7 @@
     <string name="new_hard">Hard</string>
 
     <string name="game_title">My Sudoku Game</string>
-    <string name="no_moves_label">Can't insert number in this tile!!!</string>
+    <string name="no_moves_label">Can\'t insert number in this tile!!!</string>
     <string name="keypad_title">Keypad</string>
 
 </resources>

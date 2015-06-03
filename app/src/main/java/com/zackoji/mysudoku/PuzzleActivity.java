@@ -22,8 +22,8 @@ public class PuzzleActivity extends Activity{
         super.onCreate(savedInstanceState);
 
         int diff = getIntent().getIntExtra(KEY_DIFFICULT, DIFFICULT_EASY);
-        puzzle= getPuzzle(diff);
-        calculateUsedTiles();
+        //puzzle= getPuzzle(diff);
+        //calculateUsedTiles();
 
         puzzleView = new PuzzleView(this);
         setContentView(puzzleView);
