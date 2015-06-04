@@ -29,4 +29,16 @@ public class PuzzleActivity extends Activity{
         setContentView(puzzleView);
         puzzleView.requestFocus();
     }
+
+    public String getTileString(int x, int y) {
+        int v = getTile(x, y);
+
+        if(v == 0) return "";
+        else return String.valueOf(v);
+
+    }
+
+    private int getTile(int x, int y) {
+        return puzzle[y * 9 + x];
+    }
 }

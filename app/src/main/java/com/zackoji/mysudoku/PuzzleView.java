@@ -57,7 +57,6 @@ public class PuzzleView extends View{
             canvas.drawLine(0, i * height + 1, getWidth(), i * height + 1, highlight);
             canvas.drawLine(i * width, 0 , i * width, getHeight(), light);
             canvas.drawLine(i * width + 1, 0 , i * width + 1, getHeight(), highlight);
-            //canvas.drawLine();
         }
             //Draw Primary Grid
         for(int i = 0; i < 9; i++){
@@ -67,5 +66,25 @@ public class PuzzleView extends View{
                 canvas.drawLine(i * width, 0, i * width, getHeight(), dark);
                 canvas.drawLine(i * width + 1, 0, i * width + 1, getHeight(), dark);
         }
+
+            //Draw Number
+        Paint fg = new Paint(Paint.ANTI_ALIAS_FLAG);
+        fg.setColor(getResources().getColor(R.color.puzzle_foreground));
+        fg.setStyle(Paint.Style.FILL);
+        fg.setTextSize(height * 0.75f);
+        fg.setTextScaleX(width / height);
+        fg.setTextAlign(Paint.Align.CENTER);
+
+        Paint.FontMetrics fm = fg.getFontMetrics();
+        float x = width / 2;
+        float y = height / 2 - (fm.ascent + fm.descent) / 2;
+        for (int i = 0; i < 9; i++){
+            for (int j = 0; j < 9; j++){
+                canvas.drawText(this.game.getTileString(i, j), i * width + x, j * height + y, fg);
+            }
+        }
+
+
+
     }
 }
