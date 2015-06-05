@@ -84,7 +84,20 @@ public class PuzzleView extends View{
             }
         }
 
-
-
+        Paint selected = new Paint();
+        selected.setColor(getResources().getColor(R.color.puzzle_selected));
+        canvas.drawRect(selRect, selected);
     }
+
+    public boolean onKeyDown() {
+        //Implement
+        return true;
+    }
+
+
+
+
+
+
 }
+
