@@ -33,7 +33,7 @@ public class PuzzleActivity extends Activity{
     public String getTileString(int x, int y) {
         int v = getTile(x, y);
 
-        if(v == 0) return "";
+        if(v == 0) return "1";
         else return String.valueOf(v);
 
     }
