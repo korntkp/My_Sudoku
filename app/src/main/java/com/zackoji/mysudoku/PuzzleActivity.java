@@ -41,4 +41,12 @@ public class PuzzleActivity extends Activity{
     private int getTile(int x, int y) {
         return puzzle[y * 9 + x];
     }
+
+    public void showKeypadOrError(int selX, int selY) {
+
+    }
+
+    public boolean setTileIfValid(int selX, int selY, int num) {
+        return false;
+    }
 }

@@ -4,7 +4,9 @@ import android.content.Context;
 import android.graphics.Paint;
 import android.graphics.Rect;
 import android.graphics.Canvas;
+import android.util.Log;
 import android.view.KeyEvent;
+import android.view.MotionEvent;
 import android.view.View;
 
 /**
@@ -87,7 +89,7 @@ public class PuzzleView extends View {
 
         Paint selected = new Paint();
         selected.setColor(getResources().getColor(R.color.puzzle_selected));
-        selected.setAlpha(64);
+        //selected.setAlpha(64);
         canvas.drawRect(selRect, selected);
     }
 
@@ -109,6 +111,24 @@ public class PuzzleView extends View {
                 return super.onKeyDown(keyCode, event);
         }
         return true;
+    }
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        if(event.getAction() != MotionEvent .ACTION_DOWN) return super.onTouchEvent(event);
+        select((int) (event.getX() / width), (int) (event.getY() / height));
+        //select((int) (event.getX()), (int) (event.getY()));
+        Log.w("Sudoku","X = " + event.getX() + " Y = " + event.getY());
+        Log.w("Sudoku","width = " + width + " height = " + height);
+        //Log.
+        game.showKeypadOrError(selX, selY);
+        return true;
+    }
+
+    public void setSelectdTile(int num){
+        if(game.setTileIfValid(selX, selY, num)){
+            invalidate();
+        }
     }
 
     private void select(int x, int y) {
