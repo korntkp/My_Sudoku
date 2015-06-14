@@ -91,6 +91,24 @@ public class PuzzleView extends View {
         selected.setColor(getResources().getColor(R.color.puzzle_selected));
         //selected.setAlpha(64);
         canvas.drawRect(selRect, selected);
+
+        // Draw Hint
+        int c[] = {getResources().getColor(R.color.puzzle_hint_0),
+                getResources().getColor(R.color.puzzle_hint_1),
+                getResources().getColor(R.color.puzzle_hint_2)};
+
+        for (int i = 0; i < 9; i++){
+            for(int j = 0; j < 9; j++){
+                int numLeft = 9 - game.getUsedTiles(i,j).length;
+                if(numLeft < c.length){
+                    Rect r = new Rect();
+                    getReact(i, j, r);
+                    Paint hint = new Paint();
+                    hint.setColor(c[numLeft]);
+                    canvas.drawRect(r, hint);
+                }
+            }
+        }
     }
 
     public boolean onKeyDown(int keyCode, KeyEvent event) {
@@ -115,7 +133,8 @@ public class PuzzleView extends View {
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-        if(event.getAction() != MotionEvent .ACTION_DOWN) return super.onTouchEvent(event);
+        if(event.getAction() != MotionEvent.ACTION_DOWN) return super.onTouchEvent(event);
+
         select((int) (event.getX() / width), (int) (event.getY() / height));
         //select((int) (event.getX()), (int) (event.getY()));
         Log.w("Sudoku","X = " + event.getX() + " Y = " + event.getY());

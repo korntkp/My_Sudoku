@@ -14,6 +14,7 @@ public class PuzzleActivity extends Activity{
     public static final int DIFFICULT_HARD = 2;
 
     private int puzzle[] = new int[9*9];
+    private final int used[][][] = new int[9][9][];
 
     private PuzzleView puzzleView;
 
@@ -48,5 +49,9 @@ public class PuzzleActivity extends Activity{
 
     public boolean setTileIfValid(int selX, int selY, int num) {
         return false;
+    }
+
+    public int[] getUsedTiles(int x, int y) {
+        return used[x][y];
     }
 }
