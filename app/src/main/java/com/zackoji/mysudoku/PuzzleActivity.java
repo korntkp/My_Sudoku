@@ -1,7 +1,10 @@
 package com.zackoji.mysudoku;
 
 import android.app.Activity;
+import android.app.Dialog;
 import android.os.Bundle;
+import android.view.Gravity;
+import android.widget.Toast;
 
 /**
  * Created by Zackoji on 31/5/2558.
@@ -43,8 +46,18 @@ public class PuzzleActivity extends Activity{
         return puzzle[y * 9 + x];
     }
 
-    public void showKeypadOrError(int selX, int selY) {
+    public void showKeypadOrError(int x, int y) {
+        int tiles[] = getUsedTiles(x, y);
 
+        if(tiles.length == 9){
+            Toast toast = Toast.makeText(this, R.string.no_moves_label, Toast.LENGTH_SHORT);
+            toast.setGravity(Gravity.CENTER, 0, 0);
+            toast.show();
+        }
+        else{
+            Dialog v = new Keypad(this, tiles, puzzleView);
+            v.show();
+        }
     }
 
     public boolean setTileIfValid(int selX, int selY, int num) {
