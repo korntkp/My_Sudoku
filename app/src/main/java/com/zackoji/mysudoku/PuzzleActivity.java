@@ -60,8 +60,34 @@ public class PuzzleActivity extends Activity{
         }
     }
 
-    public boolean setTileIfValid(int selX, int selY, int num) {
-        return false;
+    public boolean setTileIfValid(int x, int y, int value) {
+        int tiles[] = getUsedTiles(x, y);
+
+        if(value != 0){
+            for (int tile : tiles){
+                if(tile == value) return false;
+            }
+        }
+
+        setTile(x, y, value);
+        calculateUsedTiles();
+        return true;
+    }
+
+    private void setTile(int x, int y, int value) {
+        puzzle[y * 9 + x] = value;
+    }
+
+    private void calculateUsedTiles() {
+        for(int x = 0; x < 9; x++){
+            for (int y = 0; y < 9; y++){
+                used[x][y] = calculateUsedTiles(x, y);
+            }
+        }
+    }
+
+    private int[] calculateUsedTiles(int x, int y) {
+        return new int[0];
     }
 
     public int[] getUsedTiles(int x, int y) {
